@@ -27,21 +27,15 @@
 .logo-text,
 .hero-title,
 .coarc-brand {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 0.08em;
-    color: #ffffff !important;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    /* Ensure proper casing: lowercase 'o' */
-    text-transform: none !important;
-    font-variant: normal !important;
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: 15px;
+    margin-bottom: 20px;
+    text-transform: none; /* This is the "magic" line that fixes the 'o' */
+    color: #ffffff;
 }
 
-.hero-title {
-    font-size: 3.2rem;
-    margin-bottom: 0.7em;
-}
+.hero-title 
 
 /* Brighten image logos if present */
 .logo img, .logo-container img {
