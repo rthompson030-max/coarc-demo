@@ -144,7 +144,7 @@ header.scrolled .nav a {
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    background: linear-gradient(to right, #050608 0%, #050608 40%, transparent 60%, transparent 100%);
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover no-repeat;
 }
 
 .hero-img {
@@ -226,6 +226,9 @@ h1 .hero h1,
 .approach-content h2 {
     font-size: 3rem;
     font-weight: 300;
+    width: 100%;
+    display: block;
+    text-align: center;
     margin-bottom: 2.5rem;
     color: #1e2c51;
     line-height: 1.1;
