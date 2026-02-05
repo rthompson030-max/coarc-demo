@@ -36,69 +36,62 @@
             margin-top: 0.75em;
         }
 
+        /* HERO SECTION STYLES (AS REQUIRED) */
         .hero {
-            /* Hero Background - Replace with preferred dark/architectural background if needed */
-            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1350&q=80') center center no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/hero-bg.jpg');
             background-size: cover;
-            position: relative;
-            min-height: 58vh;
+            background-position: center;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            width: 100%;
             overflow: hidden;
         }
-
+        /* Remove image overlay element, handled by CSS background above */
         .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(17,17,17, 0.64);
-            z-index: 1;
+            display: none;
         }
-
+        .hero-img {
+            display: none;
+        }
         .hero-content {
-            position: relative;
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
             height: 100%;
+            text-align: center;
+        }
+        .hero-title {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            font-size: 3.2rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 0.7em;
+        }
+        .hero-subtitle {
+            font-family: 'Outfit', 'Inter', Arial, sans-serif;
+            font-size: 1.25rem;
+            color: #fff;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin: 0 auto;
+            max-width: 680px;
+        }
+
+        /* APPROACH TITLE FIXES */
+        .approach-section .approach-title-container {
             width: 100%;
             text-align: center;
         }
-
-        .hero-img {
-            position: relative;
-            z-index: 2;
-            display: block;
-            margin: 0 auto 1.6rem auto;
-            filter: brightness(0) invert(1); /* Make black logo white */
-            max-height: 80px;
-        }
-
-        .hero-content h1 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            font-size: 2.65rem;
-            color: #fff;
-            text-transform: uppercase;
-            margin: 0 0 0.45em 0;
-            line-height: 1.08;
-        }
-
-        .hero-content .hero-subtitle {
-            font-family: 'Outfit', 'Inter', Arial, sans-serif;
-            font-size: 1.22rem;
-            color: #fff;
-            max-width: 600px;
-            margin: 0 auto;
-            text-transform: uppercase;
-            opacity: 0.98;
-            letter-spacing: 0.04em;
-        }
-
         .approach-section .section-title {
             text-align: center;
             font-family: 'Merriweather', serif;
@@ -106,13 +99,14 @@
             text-transform: none;
             letter-spacing: 0.08em;
             font-size: 2.1rem;
+            display: inline-block;
         }
-
-        .approach-section .section-title .coarc-brand {
+        .approach-section .coarc-brand {
             font-family: inherit;
             font-weight: 700;
             letter-spacing: inherit;
             color: inherit;
+            text-transform: none;
         }
 
         .office-block .address-block {
@@ -134,7 +128,7 @@
         <div class="container header-inner">
             <div class="logo">
                 <div class="logo-container">
-                    <div class="logo-text"><span style="text-transform: none;">C</span>oARC</div>
+                    <div class="logo-text">CoARC</div>
                 </div>
             </div>
             <nav class="nav">
@@ -148,32 +142,25 @@
 
     <main>
         <section id="top" class="hero">
-            <img src="https://impro.usercontent.one/appid/oneComWsb/domain/architecturenw.co.uk/media/architecturenw.co.uk/onewebmedia/anw-logo-new%20copy-resized50.jpg?etag=W%2F%2215d69-5eb048ec%22&sourceContentType=image%2Fjpeg&ignoreAspectRatio&resize=366%2B128&quality=85"
-                 alt="CoARC logo" class="hero-img">
-            <div class="hero-overlay"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1>
-                        <span style="text-transform: none;">C</span>OARC
-                    </h1>
-                    <p class="hero-subtitle">
-                        WE PROVIDE AN OPEN AND COLLABORATIVE APPROACH TO BUILDING DESIGN
-                    </p>
-                </div>
+            <div class="hero-content">
+                <h1 class="hero-title">CoARC</h1>
+                <p class="hero-subtitle">
+                    WE PROVIDE AN OPEN AND COLLABORATIVE APPROACH TO BUILDING DESIGN
+                </p>
             </div>
         </section>
 
         <section id="approach" class="approach-section">
             <div class="container">
                 <div class="approach-content">
-                    <h2 class="section-title">
-                        <span class="coarc-brand" style="text-transform:none;">C</span>oARC Approach
-                    </h2>
+                    <div class="approach-title-container">
+                        <h2 class="section-title">CoARC Approach</h2>
+                    </div>
                     <p class="approach-intro">
-                        Architecture:nw is now <span class="coarc-brand" style="text-transform:none;">C</span>oARC. 
-                        <span class="coarc-brand" style="text-transform:none;">C</span>oARC was formed from the merging of architecture:nw with fleming james architects. 
-                        <span class="coarc-brand" style="text-transform:none;">C</span>oARC provides a flexible and adaptable service to our clients through a collaborative approach. 
-                        <span class="coarc-brand" style="text-transform:none;">C</span>oARC is an RIBA Chartered Practice.
+                        Architecture:nw is now <span class="coarc-brand">CoARC</span>. 
+                        <span class="coarc-brand">CoARC</span> was formed from the merging of architecture:nw with fleming james architects. 
+                        <span class="coarc-brand">CoARC</span> provides a flexible and adaptable service to our clients through a collaborative approach. 
+                        <span class="coarc-brand">CoARC</span> is an RIBA Chartered Practice.
                     </p>
                 </div>
             </div>
@@ -230,7 +217,7 @@
                         <p class="consultation-note">A member of our team would be more than happy to discuss your
                             project during an initial consultation.</p>
                         <div class="office-block">
-                            <h3 class="office-title"><span class="coarc-brand" style="text-transform:none;">C</span>oARC</h3>
+                            <h3 class="office-title"><span class="coarc-brand">CoARC</span></h3>
                             <div class="address-block">
                                 Alpha Works, Alpha Tower<br>
                                 Suffolk Street Queensway, Birmingham, B1 1TT
@@ -269,20 +256,21 @@
                 <p>0121 769 2414</p>
                 <p>studio@coarc.co.uk</p>
                 <p>
-                    <span class="coarc-brand" style="text-transform:none;">C</span>oARC<br>
+                    <span class="coarc-brand">CoARC</span><br>
                     Alpha Works, Alpha Tower<br>
                     Suffolk Street Queensway, Birmingham, B1 1TT
                 </p>
             </div>
         </div>
-        <div class="footer-extra-address">
-            <div class="container">
-                <p>Alpha Works, Alpha Tower, Suffolk Street Queensway, Birmingham, B1 1TT</p>
-            </div>
-        </div>
+        <!-- Remove duplicate 'CoARC' and clean up address -->
         <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; <span class="coarc-brand" style="text-transform:none;">C</span>oARC Ltd 2026. Registered in England Number: 13031344</p>
+            <div class="container" style="text-align:center;">
+                <p>
+                    <span class="coarc-brand">CoARC</span><br>
+                    Alpha Works, Alpha Tower<br>
+                    Suffolk Street Queensway, Birmingham, B1 1TT<br>
+                    &copy; CoARC Ltd 2026. Registered in England Number: 13031344
+                </p>
             </div>
         </div>
     </footer>
