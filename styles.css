@@ -34,3 +34,12 @@ nav {
 }
 
 .hero-title {
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: 15px;
+    margin-bottom: 20px;
+    text-transform: none;
+}
+
+
+.hero-title {
