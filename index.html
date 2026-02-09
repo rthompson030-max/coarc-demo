@@ -1,6 +1,6 @@
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MANNING ELLIOTT | High-End Architectural Design</title>
+<title>CoARC | High-End Architectural Design</title>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -15,7 +15,7 @@
 :root {
 --c-bg: #E3E1DC; /* Stone/Concrete */
 --c-dark: #121212;
---c-accent: #374336; /* Deep Moss */
+--c-accent: #000000; /* Black for minimalist accent */
 --font-display: 'Syncopate', sans-serif;
 --font-body: 'Manrope', sans-serif;
 }
@@ -163,6 +163,56 @@ z-index: 9000;
 opacity: 0.05;
 background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
 }
+/* --- HERO & NAV HIGH-CONTRAST CUSTOMIZATION --- */
+
+/* 1. Pure white text for hero heading, logo, and nav links */
+.hero-heading,
+.hero-text .hero-heading,
+nav .logo,
+nav .nav-link,
+nav .home-link {
+  color: #FFFFFF !important;
+}
+
+/* 2. Subtle, soft text glow for hero heading (more professional and crisp) */
+.hero-heading,
+.hero-text .hero-heading {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.14), 0 1px 2px rgba(0,0,0,0.11);
+}
+
+/* 3. Deepen overlay for hero background image for contrast */
+.hero-bg-custom {
+  background-image: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop');
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* 4. Logo: bolder weight than nav links */
+nav .home-link,
+nav .logo {
+  font-weight: 900 !important;
+  letter-spacing: -0.02em;
+}
+
+nav .nav-link {
+  font-weight: 500 !important;
+}
+
+.hero-text .hero-heading {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 900px) {
+  .hero-text .hero-heading {
+    font-size: 3rem;
+  }
+}
 </style></head>
 <body class="">
 
@@ -171,19 +221,36 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
 
     <!-- PRELOADER -->
     <div class="loader">
-        <div class="loader-text">MANNING ELLIOTT</div>
+        <div class="loader-text">CoARC</div>
         <div class="loader-bar"></div>
     </div>
 
     <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference text-white">
-        <div class="display font-bold text-xl tracking-tighter"><a href="#home" class="home-link">MANNING ELLIOTT</a></div>
-        <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
-            <a href="#work" class="nav-link hover:text-gray-300 transition-colors">Work</a>
-            <a href="#studio" class="nav-link hover:text-gray-300 transition-colors">Studio</a>
-            <a href="#contact" class="nav-link hover:text-gray-300 transition-colors">Contact</a>
+    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference bg-transparent">
+        <div class="display text-xl tracking-tighter">
+            <a href="#home" 
+               class="home-link font-semibold" 
+               style="color:#FFFFFF; font-weight:600;"
+            >CoARC</a>
         </div>
-        <div class="md:hidden">MENU</div>
+        <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
+            <a 
+                href="#work" 
+                class="nav-link transition-colors" 
+                style="color:#FFFFFF; font-weight:400;"
+            >Work</a>
+            <a 
+                href="#studio" 
+                class="nav-link transition-colors" 
+                style="color:#FFFFFF; font-weight:400;"
+            >Studio</a>
+            <a 
+                href="#contact" 
+                class="nav-link transition-colors" 
+                style="color:#FFFFFF; font-weight:400;"
+            >Contact</a>
+        </div>
+        <div class="md:hidden text-white">MENU</div>
     </nav>
 
     <!-- WRAPPER (Z-INDEX 10) -->
@@ -191,17 +258,13 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
         
         <!-- HERO -->
         <section id="home" class="h-screen relative flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover brightness-75 hero-img" alt="Hero">
-            <!-- Added mix-blend-difference to the parent container so ALL text inverts -->
-            <div class="relative z-10 text-center text-white mix-blend-difference">
-                <h1 class="display text-[12vw] leading-none hero-text overflow-hidden">
-                    <span class="block translate-y-full">MANNING</span>
+            <div class="hero-bg-custom"></div>
+            <div class="relative z-10 text-center text-white mix-blend-difference hero-text">
+                <h1 class="overflow-hidden">
+                    <span class="hero-heading block translate-y-full">
+                        We provide an open and collaborative approach to building design.
+                    </span>
                 </h1>
-                <h1 class="display text-[12vw] leading-none hero-text overflow-hidden">
-                    <span class="block translate-y-full">ELLIOTT</span>
-                </h1>
-                <!-- Subtitle now inverts correctly -->
-                <p class="mt-8 text-sm uppercase tracking-[0.5em] opacity-0 hero-fade mix-blend-difference">High-End Architectural Design for Discerning Clients</p>
             </div>
         </section>
 
@@ -209,12 +272,12 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
         <section id="studio" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-[var(--c-bg)]">
             <div>
                 <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
-                    MANNING <br><span class="text-[var(--c-accent)]">ELLIOTT</span>
+                    <span class="text-[var(--c-accent)]">CoARC</span>
                 </h2>
             </div>
             <div class="text-xl font-light leading-relaxed text-gray-700">
                 <p class="mb-8 split-animate text-center">
-                    We specialise in creating bespoke, forward-thinking, sustainable architecture that exceeds the expectations of our clients. We create architecture that inspires and captivates. We promote economic and environmentally sustainable ideas and drive innovation. Our designs evolve through observation, careful thought, and discussion with our clients and reflect the context in which they reside. We take great pride in working in partnership with our clients and we look forward to working with you on your next project.
+                    We are CoARC. We specialise in open, collaborative architecture that connects people and places. Our designs are driven by innovation and a commitment to sustainable, forward-thinking urban spaces.
                 </p>
                 <div class="h-px w-full bg-black/10 my-8"></div>
                 <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
@@ -228,7 +291,7 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
         <section id="work" class="stack-section">
             <div class="text-center mb-20 px-6">
                 <div class="text-xs uppercase tracking-widest mb-4 opacity-50">Selected Works</div>
-                <h2 class="display text-5xl md:text-7xl">MANNING ELLIOTT</h2>
+                <h2 class="display text-5xl md:text-7xl">CoARC</h2>
             </div>
 
             <div class="stack-container">
@@ -245,7 +308,7 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
                             <div class="text-gray-400 font-light">
                                 An exclusive concrete home reimagining serenity and volume for a private client. Celebrating negative space and poetic daylight.
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-white transition-colors">View Project</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-[var(--c-accent)] transition-colors">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dccab47-16b0-4716-9e1a-b97f124e3031_1600w.webp" class="card-img object-cover w-full h-auto" alt="Project 1">
@@ -265,7 +328,7 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
                             <div class="text-gray-400 font-light">
                                 Adaptive reuse of a historic structure, converted into a tranquil urban oasis with layered greenery.
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-white transition-colors">View Project</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-[var(--c-accent)] transition-colors">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/952269bf-60f5-48dc-afce-13953bead1eb_1600w.webp" class="card-img object-cover w-full h-auto" alt="Project 2">
@@ -285,7 +348,7 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
                             <div class="text-gray-400 font-light">
                                 A signature residence suspended over Icelandic cliffs, merging glass, steel, and the dramatic landscape.
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-white transition-colors">View Project</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max hover:text-[var(--c-accent)] transition-colors">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/aa5ed4de-1a7e-4bb7-b0ea-1a4c511663df_1600w.webp" class="card-img object-cover w-full h-auto" alt="Project 3">
@@ -298,7 +361,7 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
 
         <!-- FINAL SECTION (Replaces "Scroll to Reveal") -->
         <section class="py-40 bg-[#E3E1DC] text-center flex flex-col items-center justify-center relative z-10">
-            <h2 class="display text-3xl md:text-5xl mb-8">MANNING ELLIOTT</h2>
+            <h2 class="display text-3xl md:text-5xl mb-8">CoARC</h2>
             <div class="max-w-xl text-gray-600 font-light mb-12 leading-relaxed">
                 Exceptional architecture for exceptional individuals, balancing timeless aesthetics and individual lifestyles.
             </div>
@@ -312,7 +375,11 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
             <h2 class="display text-3xl md:text-5xl mb-8">Contact Us</h2>
             <div class="max-w-xl text-gray-600 font-light mb-12 leading-relaxed">
                 Please reach out for collaborations or any queries.<br>
-                <a href="mailto:studio@manningelliott.com" class="underline text-[var(--c-accent)]">studio@manningelliott.com</a>
+                <a href="mailto:studio@coarc.co.uk" class="underline text-[var(--c-accent)]">studio@coarc.co.uk</a>
+                <div class="mt-6 text-base text-gray-600">
+                    <div>Alpha Works, Alpha Tower, Suffolk Street Queensway, Birmingham, B1 1TT</div>
+                    <div class="mt-2">0121 769 2414</div>
+                </div>
             </div>
         </section>
     </div> 
@@ -320,22 +387,27 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
 
     <!-- FOOTER (FIXED BEHIND) -->
     <footer class="footer-sticky">
-        <div class="relative z-10 text-center">
+        <div class="relative z-10 text-center flex flex-col items-center justify-center">
             <div class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">Have a project?</div>
-            <a href="mailto:studio@manningelliott.com" class="display text-[8vw] leading-none hover:text-gray-400 transition-colors">
+            <a href="mailto:studio@coarc.co.uk" class="display text-[8vw] leading-none hover:text-[var(--c-accent)] transition-colors">
                 LET'S TALK
             </a>
-            <div class="flex justify-center gap-8 mt-12 text-sm uppercase tracking-widest text-gray-400">
-                <a href="#" class="hover:text-white">Instagram</a>
-                <a href="#" class="hover:text-white">LinkedIn</a>
-                <a href="#" class="hover:text-white">Behance</a>
+            <div class="flex flex-col items-center gap-2 mt-8 text-sm font-light text-gray-300">
+                <span>Alpha Works, Alpha Tower, Suffolk Street Queensway, Birmingham, B1 1TT</span>
+                <span class="font-mono">0121 769 2414</span>
+                <a href="mailto:studio@coarc.co.uk" class="underline text-[var(--c-accent)] mt-1">studio@coarc.co.uk</a>
             </div>
-            <div class="mt-20 text-[10px] text-gray-700">
-                © 2025 MANNING ELLIOTT PARTNERSHIP
+            <div class="flex justify-center gap-8 mt-10 text-sm uppercase tracking-widest text-gray-400">
+                <a href="#" class="hover:text-[var(--c-accent)]">Instagram</a>
+                <a href="#" class="hover:text-[var(--c-accent)]">LinkedIn</a>
+                <a href="#" class="hover:text-[var(--c-accent)]">Behance</a>
+            </div>
+            <div class="mt-20 text-[10px] text-gray-700 font-light">
+                © CoARC Ltd 2026. Registered in England Number: 13031344
             </div>
         </div>
         <!-- Footer Background Image -->
-        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c6b6980-54e4-4d8c-9ff6-e09b844d7b01_3840w.webp" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c6b6980-54e4-4d8c-9ff6-e09b844d7b01_3840w.webp" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none" alt="CoARC Footer Background">
     </footer>
 
     <script>
@@ -396,11 +468,11 @@ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='ht
             gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
             
             // Hero Parallax
-            gsap.to('.hero-img', {
+            gsap.to('.hero-bg-custom', {
                 yPercent: 30,
                 ease: 'none',
                 scrollTrigger: {
-                    trigger: '.hero-img',
+                    trigger: '.hero-bg-custom',
                     start: 'top top',
                     end: 'bottom top',
                     scrub: true
